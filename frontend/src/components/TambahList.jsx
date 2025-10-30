@@ -17,10 +17,11 @@ const TambahList = ({ isOpen, onClose, onAdd }) => {
   };
 
   const handleSubmit = async (e) => {
+    const API_URL = import.meta.env.VITE_API_URL;
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:5000/list", {
+      const res = await fetch(`${API_URL}/list/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

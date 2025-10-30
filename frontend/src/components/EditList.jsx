@@ -25,8 +25,10 @@ const EditList = ({ isOpen, onClose, listData, onUpdate }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     try {
-      await axios.patch(`http://localhost:5000/list/${listData.id_list}`, formData);
+      await axios.patch(`${API_URL}/list/${listData.id_list}`, formData);
       onUpdate(); // refresh list data di parent
       onClose();
     } catch (error) {

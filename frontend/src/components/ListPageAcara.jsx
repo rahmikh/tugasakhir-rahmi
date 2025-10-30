@@ -12,8 +12,9 @@ const ListPageAcara = () => {
 
   // ✅ Pindahkan fetchData ke fungsi yang bisa dipanggil ulang
   const fetchData = async () => {
+    const API_URL = import.meta.env.VITE_API_URL;
     try {
-      const res = await axios.get("http://localhost:5000/list/acara");
+      const res = await axios.get(`${API_URL}/list/acara`);
       setLists(res.data.data);
       setError("");
     } catch (err) {

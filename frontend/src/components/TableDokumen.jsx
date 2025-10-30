@@ -14,9 +14,10 @@ const TableDokumen = ({ lists, onRefresh }) => {
   };
 
   const handleDeleteClick = async (id) => {
+    const API_URL = import.meta.env.VITE_API_URL;
     if (window.confirm("Yakin ingin menghapus data ini?")) {
       try {
-        await axios.delete(`http://localhost:5000/list/${id}`);
+        await axios.delete(`${API_URL}/list/${id}`);
         onRefresh();
 
         // modal sukses hapus
